@@ -3,20 +3,20 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Ficus &amp; Salt — Wood-Fired Mediterranean, Northbridge</title>
-<meta name="description" content="Ficus &amp; Salt is a wood-fired Mediterranean small-plates restaurant and natural wine bar in Northbridge. Reserve a table or order the signature octopus tonight.">
-<link rel="canonical" href="https://www.ficusandsalt.example/">
+<title>La Ferme de Bassac — French Farm Butcher &amp; Bistro, Phnom Penh &amp; Siem Reap</title>
+<meta name="description" content="La Ferme de Bassac is a French butcher shop, charcuterie and bistro/steakhouse in Phnom Penh and Siem Reap, sourced from Chef Ludovic Moulin's own organic farm since 2011.">
+<link rel="canonical" href="https://www.lafermedebassac.example/">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 
 <meta property="og:type" content="restaurant.restaurant">
-<meta property="og:title" content="Ficus &amp; Salt — Wood-Fired Mediterranean, Northbridge">
-<meta property="og:description" content="Wood fire. Sea salt. Slow food, quickly shared. Mediterranean small plates and natural wine in the Northbridge harbor district.">
-<meta property="og:url" content="https://www.ficusandsalt.example/">
-<meta property="og:site_name" content="Ficus &amp; Salt">
+<meta property="og:title" content="La Ferme de Bassac — French Farm Butcher &amp; Bistro">
+<meta property="og:description" content="From our own organic farm to three addresses in Phnom Penh and Siem Reap — French butchery, charcuterie and bistro cooking since 2011.">
+<meta property="og:url" content="https://www.lafermedebassac.example/">
+<meta property="og:site_name" content="La Ferme de Bassac">
 <meta property="og:locale" content="en_US">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Ficus &amp; Salt — Wood-Fired Mediterranean, Northbridge">
-<meta name="twitter:description" content="Wood fire. Sea salt. Slow food, quickly shared. Mediterranean small plates and natural wine in the Northbridge harbor district.">
+<meta name="twitter:title" content="La Ferme de Bassac — French Farm Butcher &amp; Bistro">
+<meta name="twitter:description" content="From our own organic farm to three addresses in Phnom Penh and Siem Reap — French butchery, charcuterie and bistro cooking since 2011.">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -26,52 +26,85 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Restaurant",
-  "name": "Ficus & Salt",
-  "description": "Wood-fired Mediterranean small plates and natural wine in the Northbridge harbor district.",
-  "url": "https://www.ficusandsalt.example/",
-  "telephone": "+1-555-014-2231",
-  "email": "hello@ficusandsalt.example",
-  "servesCuisine": ["Mediterranean", "Small Plates", "Wine Bar"],
-  "priceRange": "$$",
-  "address": {
-    "@type": "PostalAddress",
-    "streetAddress": "214 Harbor Row",
-    "addressLocality": "Northbridge",
-    "addressRegion": "NB",
-    "postalCode": "00000",
-    "addressCountry": "US"
-  },
-  "openingHoursSpecification": [
-    { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Tuesday","Wednesday","Thursday"], "opens": "17:00", "closes": "22:00" },
-    { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Friday","Saturday"], "opens": "17:00", "closes": "23:00" },
-    { "@type": "OpeningHoursSpecification", "dayOfWeek": "Sunday", "opens": "17:00", "closes": "21:00" }
-  ],
-  "sameAs": [
-    "https://www.instagram.com/ficusandsalt",
-    "https://www.facebook.com/ficusandsalt"
-  ],
-  "acceptsReservations": "https://book.ficusandsalt.example"
+  "@graph": [
+    {
+      "@type": "Restaurant",
+      "name": "La Ferme de Bassac — Bistro & Butcher (Phnom Penh)",
+      "description": "French bistro and butcher shop sourced from La Ferme de Bassac's own organic farm outside Phnom Penh.",
+      "url": "https://www.lafermedebassac.example/#visit",
+      "telephone": "+855-92-638-683",
+      "servesCuisine": ["French", "Bistro", "Butcher Shop"],
+      "founder": { "@type": "Person", "name": "Ludovic Moulin" },
+      "foundingDate": "2011",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "9A Street 178",
+        "addressLocality": "Daun Penh, Phnom Penh",
+        "addressCountry": "KH"
+      },
+      "openingHoursSpecification": [
+        { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"], "opens": "07:00", "closes": "22:00" }
+      ],
+      "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.9", "reviewCount": "82" }
+    },
+    {
+      "@type": "Restaurant",
+      "name": "La Ferme de Bassac — Steak House (Siem Reap)",
+      "description": "French steakhouse sourced from La Ferme de Bassac's own organic farm, in Wat Bo Village, Siem Reap.",
+      "url": "https://www.lafermedebassac.example/#visit",
+      "telephone": "+855-96-963-5209",
+      "servesCuisine": ["French", "Steakhouse"],
+      "founder": { "@type": "Person", "name": "Ludovic Moulin" },
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Street 24, Wat Bo Village",
+        "addressLocality": "Siem Reap",
+        "addressCountry": "KH"
+      },
+      "openingHoursSpecification": [
+        { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"], "opens": "11:00", "closes": "14:00" },
+        { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"], "opens": "18:00", "closes": "22:00" }
+      ],
+      "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.9", "reviewCount": "82" }
+    },
+    {
+      "@type": "Store",
+      "name": "La Ferme de Bassac — Butcher Depot (Siem Reap)",
+      "description": "Butcher counter and charcuterie shop sourced from La Ferme de Bassac's own organic farm, Sekla Road, Siem Reap.",
+      "url": "https://www.lafermedebassac.example/#visit",
+      "telephone": "+855-15-748-559",
+      "founder": { "@type": "Person", "name": "Ludovic Moulin" },
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Sekla Road",
+        "addressLocality": "Siem Reap",
+        "addressCountry": "KH"
+      },
+      "openingHoursSpecification": [
+        { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"], "opens": "08:00", "closes": "18:00" }
+      ]
+    }
+  ]
 }
 </script>
 </head>
 <body>
 
 <header class="hero">
-  <img class="hero-motif" src="motif-olive-branch.svg" alt="" width="240" height="120">
+  <img class="hero-motif" src="motif-butcher-stamp.svg" alt="" width="180" height="180">
   <div class="wrap hero-inner">
-    <p class="eyebrow">Northbridge Harbor District</p>
-    <h1>Ficus &amp; Salt</h1>
-    <p class="tagline">Wood fire. Sea salt. Slow food, quickly shared.</p>
-    <p class="hero-desc">Mediterranean small plates cooked over an open wood fire, paired with a natural wine list — walk-ins welcome, tables go fast on weekends.</p>
+    <p class="eyebrow">Phnom Penh &amp; Siem Reap, Cambodia</p>
+    <h1>La Ferme de Bassac</h1>
+    <p class="tagline">From our farm to your table, since 2011.</p>
+    <p class="hero-desc">French butchery, charcuterie and bistro cooking from Chef Ludovic Moulin — every cut traced back to our own organic farm, raised to EU standards without hormones or preventive antibiotics.</p>
     <ul class="hero-meta">
-      <li>Northbridge, Harbor Row</li>
-      <li>$$ · Small plates</li>
-      <li><span class="dot" id="statusDot" aria-hidden="true"></span><span id="statusText">Checking hours…</span></li>
+      <li>Est. 2011 · Chef Ludovic Moulin</li>
+      <li>3 addresses · 2 cities</li>
+      <li>&#9733; 4.9/5 &middot; 82 Google reviews</li>
     </ul>
     <div class="hero-cta">
-      <a class="btn btn-primary" href="https://book.ficusandsalt.example" data-track="cta_reserve_hero">Reserve a table</a>
-      <a class="btn btn-ghost" href="https://www.google.com/maps/search/?api=1&query=214+Harbor+Row+Northbridge" data-track="cta_directions_hero">Get directions</a>
+      <a class="btn btn-primary" href="#visit" data-track="cta_find_location_hero">Find your location</a>
+      <a class="btn btn-ghost" href="tel:+85592638683" data-track="cta_call_hero">Call Phnom Penh Bistro</a>
     </div>
   </div>
 </header>
@@ -80,68 +113,124 @@
 
   <section class="about wrap" aria-labelledby="about-h">
     <h2 id="about-h">The concept</h2>
-    <p>Ficus &amp; Salt opened on the Northbridge waterfront around one idea: everything leaves the kitchen touched by the wood fire, from the octopus to the eggplant to the flatbread. The room is small, the wine list leans natural, and the pace is unhurried by design. Dishes arrive as they're ready, meant for sharing across the table, not for one plate per person.</p>
+    <p>La Ferme de Bassac began in 2011, when Ludovic Moulin — then personal chef to the French Ambassador to Cambodia — set out to fix a gap he kept running into: quality meat. He started raising pigs on his own organic farm 45 minutes outside Phnom Penh, named after the river running through the capital, and built a butcher counter around it. Every cut, terrine and saucisson served across our bistro, steakhouse and butcher shops still comes from that same farm, raised to EU standards with no hormones and no preventive antibiotics. What started as one counter on Street 178 is now three addresses across Phnom Penh and Siem Reap, run on the same farm-to-counter conviction.</p>
   </section>
 
   <section class="dishes wrap" aria-labelledby="dishes-h">
     <h2 id="dishes-h">Signature dishes</h2>
     <ul class="dish-grid">
-      <li><span class="dish-name">Wood-Fired Octopus</span><span class="dish-note">Charred, smoked paprika, lemon oil</span></li>
-      <li><span class="dish-name">Whipped Feta &amp; Hot Honey</span><span class="dish-note">Warm flatbread, chili crunch</span></li>
-      <li><span class="dish-name">Lamb Kofta Skewers</span><span class="dish-note">Sumac onion, tahini drizzle</span></li>
-      <li><span class="dish-name">Charred Eggplant Dip</span><span class="dish-note">Smoked garlic, pomegranate</span></li>
-      <li><span class="dish-name">Saffron Mussels</span><span class="dish-note">White wine broth, grilled bread</span></li>
-      <li><span class="dish-name">Olive Oil Cake</span><span class="dish-note">Orange blossom, crème fraîche</span></li>
+      <li><span class="dish-name">Beef Carpaccio</span><span class="dish-note">Thin-sliced farm beef, olive oil, parmesan</span></li>
+      <li><span class="dish-name">Steak Tartare</span><span class="dish-note">Hand-cut, classic bistro seasoning</span></li>
+      <li><span class="dish-name">Charcuterie Board</span><span class="dish-note">House terrines &amp; saucisson from our farm</span></li>
+      <li><span class="dish-name">Veal Blanquette</span><span class="dish-note">Classic French white stew, farm veal</span></li>
+      <li><span class="dish-name">C&ocirc;te de B&oelig;uf</span><span class="dish-note">Dry-aged bone-in rib, for two</span></li>
+      <li><span class="dish-name">Floating Island</span><span class="dish-note">&Icirc;le flottante, vanilla custard, caramel</span></li>
     </ul>
   </section>
 
-  <section class="info-bar wrap" aria-labelledby="info-h">
+  <section class="info-bar wrap" id="visit" aria-labelledby="info-h">
     <h2 id="info-h">Visit</h2>
-    <div class="info-grid">
-      <div class="info-block">
-        <h3>Hours</h3>
-        <dl class="hours">
-          <div><dt>Tue – Thu</dt><dd>5:00pm – 10:00pm</dd></div>
-          <div><dt>Fri – Sat</dt><dd>5:00pm – 11:00pm</dd></div>
-          <div><dt>Sun</dt><dd>5:00pm – 9:00pm</dd></div>
-          <div><dt>Mon</dt><dd>Closed</dd></div>
-        </dl>
+
+    <div class="tabs">
+      <input type="radio" name="loc" id="loc-pp" class="tab-input" checked>
+      <input type="radio" name="loc" id="loc-sh" class="tab-input">
+      <input type="radio" name="loc" id="loc-bd" class="tab-input">
+
+      <div class="tab-labels" role="tablist">
+        <label for="loc-pp">Bistro &amp; Butcher<small>Phnom Penh</small></label>
+        <label for="loc-sh">Steak House<small>Siem Reap</small></label>
+        <label for="loc-bd">Butcher Depot<small>Siem Reap</small></label>
       </div>
-      <div class="info-block">
-        <h3>Contact</h3>
-        <p><a href="tel:+15550142231" data-track="cta_call_info">(555) 014-2231</a></p>
-        <p><a href="mailto:hello@ficusandsalt.example" data-track="cta_email_info">hello@ficusandsalt.example</a></p>
-        <p><a href="https://www.google.com/maps/search/?api=1&query=214+Harbor+Row+Northbridge" data-track="cta_directions_info">214 Harbor Row, Northbridge</a></p>
-      </div>
-      <div class="info-block">
-        <h3>Follow</h3>
-        <div class="social-row">
-          <a href="https://www.instagram.com/ficusandsalt" aria-label="Instagram" data-track="cta_social_instagram">
-            <svg viewBox="0 0 24 24" width="20" height="20"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="12" r="4.2" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="17.2" cy="6.8" r="1.1" fill="currentColor"/></svg>
-          </a>
-          <a href="https://www.facebook.com/ficusandsalt" aria-label="Facebook" data-track="cta_social_facebook">
-            <svg viewBox="0 0 24 24" width="20" height="20"><path d="M14 21v-7h2.4l.4-3H14V9.2c0-.9.2-1.5 1.6-1.5H17V5.2C16.7 5.1 15.7 5 14.6 5 12.2 5 10.5 6.5 10.5 9v2H8v3h2.5v7h3.5z" fill="currentColor"/></svg>
-          </a>
+
+      <div class="tab-panels">
+        <div class="tab-panel" id="panel-pp" data-hours='{"0":[],"1":[[7,22]],"2":[[7,22]],"3":[[7,22]],"4":[[7,22]],"5":[[7,22]],"6":[[7,22]]}'>
+          <div class="info-grid">
+            <div class="info-block">
+              <h3>Hours</h3>
+              <p class="status-line"><span class="dot" data-status></span><span data-status-text>Checking hours&hellip;</span></p>
+              <dl class="hours">
+                <div><dt>Mon &ndash; Sat</dt><dd>7:00am &ndash; 10:00pm</dd></div>
+                <div><dt>Sun</dt><dd>Closed</dd></div>
+              </dl>
+            </div>
+            <div class="info-block">
+              <h3>Contact</h3>
+              <p><a href="tel:+85592638683" data-track="cta_call_pp">+855 92 638 683</a></p>
+              <p><a href="https://www.google.com/maps/search/?api=1&query=9A+Street+178%2C+Daun+Penh%2C+Phnom+Penh" data-track="cta_directions_pp">9A Street 178, Daun Penh, Phnom Penh</a></p>
+            </div>
+          </div>
+        </div>
+
+        <div class="tab-panel" id="panel-sh" data-hours='{"0":[],"1":[[11,14],[18,22]],"2":[[11,14],[18,22]],"3":[[11,14],[18,22]],"4":[[11,14],[18,22]],"5":[[11,14],[18,22]],"6":[[11,14],[18,22]]}'>
+          <div class="info-grid">
+            <div class="info-block">
+              <h3>Hours</h3>
+              <p class="status-line"><span class="dot" data-status></span><span data-status-text>Checking hours&hellip;</span></p>
+              <dl class="hours">
+                <div><dt>Mon &ndash; Sat</dt><dd>11am &ndash; 2pm, 6 &ndash; 10pm</dd></div>
+                <div><dt>Sun</dt><dd>Closed</dd></div>
+              </dl>
+            </div>
+            <div class="info-block">
+              <h3>Contact</h3>
+              <p><a href="tel:+855969635209" data-track="cta_call_sh">+855 96 963 5209</a></p>
+              <p><a href="https://www.google.com/maps/search/?api=1&query=Street+24%2C+Wat+Bo+Village%2C+Siem+Reap" data-track="cta_directions_sh">Street 24, Wat Bo Village, Siem Reap</a></p>
+            </div>
+          </div>
+        </div>
+
+        <div class="tab-panel" id="panel-bd" data-hours='{"0":[],"1":[[8,18]],"2":[[8,18]],"3":[[8,18]],"4":[[8,18]],"5":[[8,18]],"6":[[8,18]]}'>
+          <div class="info-grid">
+            <div class="info-block">
+              <h3>Hours</h3>
+              <p class="status-line"><span class="dot" data-status></span><span data-status-text>Checking hours&hellip;</span></p>
+              <dl class="hours">
+                <div><dt>Mon &ndash; Sat</dt><dd>8:00am &ndash; 6:00pm</dd></div>
+                <div><dt>Sun</dt><dd>Closed</dd></div>
+              </dl>
+            </div>
+            <div class="info-block">
+              <h3>Contact</h3>
+              <p><a href="tel:+85515748559" data-track="cta_call_bd">+855 15 74 85 59</a></p>
+              <p><a href="https://www.google.com/maps/search/?api=1&query=Sekla+Road%2C+Siem+Reap" data-track="cta_directions_bd">Sekla Road, Siem Reap</a></p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
-    <p class="fine-print">Chef and ownership details: not publicly confirmed. Delivery platform availability: not publicly confirmed.</p>
+
+    <div class="info-block follow-block">
+      <h3>Follow</h3>
+      <div class="social-row">
+        <a href="https://www.facebook.com/fermedebassac/" aria-label="Facebook, Phnom Penh" data-track="cta_social_facebook_pp">
+          <svg viewBox="0 0 24 24" width="20" height="20"><path d="M14 21v-7h2.4l.4-3H14V9.2c0-.9.2-1.5 1.6-1.5H17V5.2C16.7 5.1 15.7 5 14.6 5 12.2 5 10.5 6.5 10.5 9v2H8v3h2.5v7h3.5z" fill="currentColor"/></svg>
+        </a>
+        <a href="https://www.facebook.com/p/The-Butchers-Choice-by-La-Ferme-De-Bassac-61559890532848/" aria-label="Facebook, Siem Reap" data-track="cta_social_facebook_sr">
+          <svg viewBox="0 0 24 24" width="20" height="20"><path d="M14 21v-7h2.4l.4-3H14V9.2c0-.9.2-1.5 1.6-1.5H17V5.2C16.7 5.1 15.7 5 14.6 5 12.2 5 10.5 6.5 10.5 9v2H8v3h2.5v7h3.5z" fill="currentColor"/></svg>
+        </a>
+        <a href="https://lafermedebassac.com/index-en.html" aria-label="Official website" data-track="cta_website">
+          <svg viewBox="0 0 24 24" width="20" height="20"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M3 12h18M12 3c2.6 2.6 4 6 4 9s-1.4 6.4-4 9c-2.6-2.6-4-6-4-9s1.4-6.4 4-9z" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <p class="fine-print">Three separate Facebook pages exist, one per location; the Phnom Penh page is confirmed above, the Siem Reap page shown covers both Siem Reap addresses pending confirmation of a separate Butcher Depot page. Email address, exact menu prices, an online reservation/delivery link and an official logo file were not publicly available at time of writing — the mark above is an original stamp design, not the restaurant's real branding. Rating shown (4.9/5, 82 Google reviews) is as published on the restaurant's own website and has not been independently re-verified against Google.</p>
   </section>
 
 </main>
 
 <section class="cta-band">
   <div class="wrap">
-    <h2>Tables are limited most nights.</h2>
+    <h2>Reservations by phone only — call ahead for weekends.</h2>
     <div class="hero-cta">
-      <a class="btn btn-primary" href="https://book.ficusandsalt.example" data-track="cta_reserve_footer">Reserve a table</a>
-      <a class="btn btn-ghost" href="tel:+15550142231" data-track="cta_call_footer">Call (555) 014-2231</a>
+      <a class="btn btn-primary" href="tel:+85592638683" data-track="cta_call_footer_pp">Call Phnom Penh Bistro</a>
+      <a class="btn btn-ghost" href="tel:+855969635209" data-track="cta_call_footer_sh">Call Siem Reap Steak House</a>
     </div>
   </div>
 </section>
 
 <footer class="wrap site-footer">
-  <p>&copy; 2026 Ficus &amp; Salt. Northbridge Harbor District.</p>
+  <p>&copy; 2026 La Ferme de Bassac. Phnom Penh &amp; Siem Reap, Cambodia.</p>
 </footer>
 
 <script src="main.min.js"></script>

@@ -1,76 +1,58 @@
-# Restaurant Landing Page Template
+# La Ferme de Bassac — Landing Page
 
-A flat-file, single-page restaurant website template: plain HTML/CSS/JS, no
-frameworks, no build step. This repo doubles as:
+A flat-file, single-page landing site for La Ferme de Bassac (French farm
+butcher shop, charcuterie and bistro/steakhouse, Phnom Penh &amp; Siem Reap),
+built from `PROMPT.md`, the reusable restaurant-landing-page spec in this
+repo. Plain HTML/CSS/JS, no frameworks, no build step.
 
-1. **The reusable spec** — `PROMPT.md` — the design brief to paste into
-   Claude Code / Claude Design for any new restaurant.
-2. **A reference implementation** of that spec, built for a fictional demo
-   restaurant, **Ficus & Salt**, so the template can be previewed and
-   duplicated as a starting point.
+**This is an independent build, not the restaurant's official site.** Their
+real, live website is **https://lafermedebassac.com/** — treat this repo as
+an alternative/redesign landing page, and update the canonical/OG URLs
+(currently a placeholder `lafermedebassac.example` domain) to wherever it
+actually gets deployed before publishing.
 
 ## What's in this folder
 
 | File | Purpose |
 |---|---|
-| `index.html` | The page (hero, about, dishes, info bar, final CTA). Kept human-readable for editability; minify it with any HTML minifier at publish time if you want a byte-minimal artifact. |
-| `style.min.css` | All styles, minified. |
-| `main.min.js` | Open/closed indicator + CTA click-tracking hooks, minified. |
-| `motif-olive-branch.svg` | The signature visual motif (an olive-branch line drawing, used once in the hero). |
-| `favicon.svg` | Site icon. |
-| `robots.txt` | Allows crawling, points at `sitemap.xml`. |
-| `sitemap.xml` | Single-URL sitemap. |
-| `llms.txt` | Plain-language summary of the business for AI/LLM crawlers. |
-| `PROMPT.md` | The reusable design brief/checklist for building the next restaurant site from scratch. |
+| `index.html` | The page: hero, concept, signature dishes, a 3-location tab panel (Bistro & Butcher / Steak House / Butcher Depot), follow block, final CTA. Kept human-readable for editability; run an HTML minifier at publish time for a byte-minimal artifact. |
+| `style.min.css` | All styles, minified. Warm off-white background, oxblood/rust accent, `--accent`/`--accent-dark` CSS vars for easy re-theming. |
+| `main.min.js` | Per-location open/closed status (computed against Cambodia time, `Asia/Bangkok`, not the visitor's device clock) + CTA click-tracking hooks. |
+| `motif-butcher-stamp.svg` | Signature visual motif: an original circular butcher/quality-stamp mark, used once in the hero. **Not the restaurant's real logo** — no official logo file was publicly available. |
+| `favicon.svg` | Site icon, matches the stamp motif. |
+| `robots.txt` / `sitemap.xml` | Crawl config. |
+| `llms.txt` | Plain-language business summary for AI/LLM crawlers. |
+| `PROMPT.md` | The reusable design brief/checklist — unchanged, for building the next restaurant site. |
 
-## Demo data — not a real restaurant
+## Data sources & confirmation status
 
-"Ficus & Salt," its address, phone number, email, hours, and social handles
-are **fictional placeholder data** invented to demonstrate the template
-(domain uses the reserved `.example` TLD on purpose). Nothing here should be
-published as-is. Chef/ownership identity and delivery-platform availability
-are marked "not publicly confirmed" in the footer and `llms.txt`, mirroring
-how a real project should flag unverified research.
+Confirmed by direct research request:
+- Concept, founding year, EU-standard/no-hormone farming, ~45 min farm distance, all three addresses, phone numbers, and hours — as provided.
+- Founder/chef Ludovic Moulin, formerly personal chef to the French Ambassador to Cambodia, founded 2011 — cross-checked against `lafermedebassac.com/histoire.html` and third-party coverage (Phnom Penh Post).
+- 4.9/5 rating from 82 Google reviews — as published on the restaurant's own website; **not independently re-verified against live Google review data**, and displayed with that caveat in the page's fine print.
 
-## Using this as a template for a real restaurant
+Found via web search, used with lower confidence:
+- Official website: `https://lafermedebassac.com/index-en.html`.
+- Facebook, Phnom Penh: `https://www.facebook.com/fermedebassac/` (high confidence — consistently referenced as the main page).
+- Facebook, Siem Reap: `https://www.facebook.com/p/The-Butchers-Choice-by-La-Ferme-De-Bassac-61559890532848/` — could not confirm whether this maps to the Steak House, the Butcher Depot, or covers both; the page currently links it once and flags the ambiguity in the fine print rather than guessing.
 
-1. Research the target restaurant using the checklist in `PROMPT.md` §1.
-2. Replace every piece of demo data: JSON-LD block, hero copy, dish list,
-   hours object in `main.min.js` (`HOURS`), info-bar contacts, `llms.txt`,
-   `sitemap.xml`/`robots.txt` domain, and the `og:`/`twitter:`/canonical
-   URLs in `<head>`.
-3. If the restaurant has a logo/brand colors, swap the CSS custom properties
-   in `style.min.css` (`--bg`, `--olive`, `--olive-dark`, etc.) — keep brand
-   color as an accent only, per `PROMPT.md` §3. Otherwise keep the neutral
-   palette as-is.
-4. Swap the motif SVG for one that fits the new venue's identity if the
-   olive branch doesn't suit it (chalkboard texture, wine-label border,
-   butcher's stamp, etc. — see `PROMPT.md` §3).
-5. Re-check the hero heading color renders correctly (`.hero h1` in
-   `style.min.css` is deliberately set with `!important` and a comment
-   explaining why — a past bug let a later global heading-color rule
-   silently override it).
-6. Wire `window.trackEvent` in `main.min.js` to Plausible/Umami if desired
-   (it's a no-op console log by default).
+**Not publicly confirmed** (per the original research, and not fabricated here):
+- Email address — omitted from the page entirely rather than guessed.
+- Exact menu prices — the site shows dish names only, no price positioning ($/$$/$$$) is claimed.
+- Online reservation or delivery links — the page directs every CTA to phone calls instead.
+- Official logo file — `motif-butcher-stamp.svg` is an original mark inspired by the "butcher's stamp" motif suggested in `PROMPT.md`, not the restaurant's real branding.
+
+## Editing
+
+- Location data lives in `index.html` inside each `.tab-panel` (address, phone, map link) and its `data-hours` JSON attribute (used by `main.min.js` for the live open/closed dot) — keep both in sync if hours change.
+- JSON-LD in `<head>` mirrors the same three locations as a `@graph` of `Restaurant`/`Store` entries.
+- Re-theme via the CSS custom properties at the top of `style.min.css` (`--accent`, `--accent-dark`, `--bg`, etc.) if a real logo/brand palette becomes available later, per `PROMPT.md` §3.
 
 ## Publishing (Cloudflare Pages)
 
-1. Replace all `ficusandsalt.example` references with the real domain
-   across `index.html`, `robots.txt`, `sitemap.xml`, and `llms.txt`.
-2. In the Cloudflare dashboard: **Workers & Pages → Create → Pages → Upload
-   assets**, and upload every file in this folder (flat, no subfolders).
-3. Attach the custom domain under **Custom domains** once the project is
-   created, and update DNS (Cloudflare will prompt for a CNAME/A record if
-   the domain isn't already on Cloudflare).
-4. Submit the live sitemap in **Google Search Console** (Search Console →
-   Sitemaps → add `sitemap.xml`) and request indexing for the homepage URL.
-5. Verify Open Graph output with a link-preview debugger and confirm the
-   JSON-LD block validates (e.g. Google's Rich Results Test) before
-   announcing the site.
-
-## Sources
-
-None — this reference build uses invented demo data, not research on an
-actual business. When this template is filled in for a real restaurant,
-list the sources used for each data field here (official website, Google
-Business Profile, Instagram bio, etc.) per `PROMPT.md` §1.
+1. Decide on and swap in the real deployment domain across `index.html` (canonical, OG, Twitter, JSON-LD `url` fields), `robots.txt`, `sitemap.xml`, and `llms.txt`.
+2. In the Cloudflare dashboard: **Workers & Pages → Create → Pages → Upload assets**, and upload every file in this folder (flat, no subfolders).
+3. Attach the custom domain under **Custom domains** and update DNS as prompted.
+4. Submit `sitemap.xml` in **Google Search Console** and request indexing for the homepage.
+5. Validate Open Graph output with a link-preview debugger and the JSON-LD with Google's Rich Results Test before announcing the site.
+6. Resolve the Siem Reap Facebook page ambiguity above (confirm which physical location "The Butcher's Choice by La Ferme De Bassac" page belongs to, and whether a distinct third page exists) before treating the follow links as final.
