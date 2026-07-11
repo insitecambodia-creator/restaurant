@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.lafermedebassac.example/sitemap.xml
+Sitemap: https://restaurant-cambodia.com/sitemap.xml

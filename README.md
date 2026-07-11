@@ -1,58 +1,143 @@
-# La Ferme de Bassac — Landing Page
+# Restaurant Cambodia — landing page
 
-A flat-file, single-page landing site for La Ferme de Bassac (French farm
-butcher shop, charcuterie and bistro/steakhouse, Phnom Penh &amp; Siem Reap),
-built from `PROMPT.md`, the reusable restaurant-landing-page spec in this
-repo. Plain HTML/CSS/JS, no frameworks, no build step.
-
-**This is an independent build, not the restaurant's official site.** Their
-real, live website is **https://lafermedebassac.com/** — treat this repo as
-an alternative/redesign landing page, and update the canonical/OG URLs
-(currently a placeholder `lafermedebassac.example` domain) to wherever it
-actually gets deployed before publishing.
+A flat-file, single-page site for **restaurant-cambodia.com**, the service
+that sells websites to restaurant owners in Cambodia. Plain HTML/CSS/JS, no
+framework, no build step, deployable straight to Cloudflare Pages.
 
 ## What's in this folder
 
 | File | Purpose |
 |---|---|
-| `index.html` | The page: hero, concept, signature dishes, a 3-location tab panel (Bistro & Butcher / Steak House / Butcher Depot), follow block, final CTA. Kept human-readable for editability; run an HTML minifier at publish time for a byte-minimal artifact. |
-| `style.min.css` | All styles, minified. Warm off-white background, oxblood/rust accent, `--accent`/`--accent-dark` CSS vars for easy re-theming. |
-| `main.min.js` | Per-location open/closed status (computed against Cambodia time, `Asia/Bangkok`, not the visitor's device clock) + CTA click-tracking hooks. |
-| `motif-butcher-stamp.svg` | Signature visual motif: an original circular butcher/quality-stamp mark, used once in the hero. **Not the restaurant's real logo** — no official logo file was publicly available. |
-| `favicon.svg` | Site icon, matches the stamp motif. |
+| `index.html` | The full page: hero, problem, benefits, live example, pricing, how it works, about, FAQ, final CTA, footer. |
+| `styles.css` | All styles. Mobile-first, CSS custom properties at the top of the file (`--chili`, `--turmeric`, `--cream`, `--charcoal`) for one-place re-theming. |
+| `script.js` | Language toggle (EN default / Khmer), the `translations` object, Telegram-link injection, and on-demand loading of the Khmer font. |
+| `images/` | Placeholder graphics (see below — all need replacing). |
+| `favicon.svg` | Site icon. |
 | `robots.txt` / `sitemap.xml` | Crawl config. |
-| `llms.txt` | Plain-language business summary for AI/LLM crawlers. |
-| `PROMPT.md` | The reusable design brief/checklist — unchanged, for building the next restaurant site. |
+| `_headers` | Cloudflare Pages cache/security headers. |
 
-## Data sources & confirmation status
+## Placeholders you need to replace before launch
 
-Confirmed by direct research request:
-- Concept, founding year, EU-standard/no-hormone farming, ~45 min farm distance, all three addresses, phone numbers, and hours — as provided.
-- Founder/chef Ludovic Moulin, formerly personal chef to the French Ambassador to Cambodia, founded 2011 — cross-checked against `lafermedebassac.com/histoire.html` and third-party coverage (Phnom Penh Post).
-- 4.9/5 rating from 82 Google reviews — as published on the restaurant's own website; **not independently re-verified against live Google review data**, and displayed with that caveat in the page's fine print.
+Everything below is a stand-in. Nothing here is real business data.
 
-Found via web search, used with lower confidence:
-- Official website: `https://lafermedebassac.com/index-en.html`.
-- Facebook, Phnom Penh: `https://www.facebook.com/fermedebassac/` (high confidence — consistently referenced as the main page).
-- Facebook, Siem Reap: `https://www.facebook.com/p/The-Butchers-Choice-by-La-Ferme-De-Bassac-61559890532848/` — could not confirm whether this maps to the Steak House, the Butcher Depot, or covers both; the page currently links it once and flags the ambiguity in the fine print rather than guessing.
+### 1. Telegram handle (most important — every CTA depends on this)
+Edit **one line** in `script.js`:
+```js
+var CONFIG = {
+  telegramHandle: "restaurant_cambodia", // ← put your real @handle here
+  demoUrl: ""                             // ← paste the live demo site URL here
+};
+```
+All "Message me on Telegram" buttons (header, hero, pricing ×3, sticky
+mobile bar, final CTA band, footer) read from this one constant.
 
-**Not publicly confirmed** (per the original research, and not fabricated here):
-- Email address — omitted from the page entirely rather than guessed.
-- Exact menu prices — the site shows dish names only, no price positioning ($/$$/$$$) is claimed.
-- Online reservation or delivery links — the page directs every CTA to phone calls instead.
-- Official logo file — `motif-butcher-stamp.svg` is an original mark inspired by the "butcher's stamp" motif suggested in `PROMPT.md`, not the restaurant's real branding.
+### 2. Live demo URL
+Same `CONFIG.demoUrl` field above. Until it's filled in, the "Live example"
+section's link points at `#`. Once you have a real demo restaurant site
+live, drop its URL in and both the browser-mockup image and the "Visit the
+live demo →" text link will point to it.
 
-## Editing
+Also consider swapping `images/live-example-screenshot.svg` for an actual
+screenshot of that demo site (see image list below).
 
-- Location data lives in `index.html` inside each `.tab-panel` (address, phone, map link) and its `data-hours` JSON attribute (used by `main.min.js` for the live open/closed dot) — keep both in sync if hours change.
-- JSON-LD in `<head>` mirrors the same three locations as a `@graph` of `Restaurant`/`Store` entries.
-- Re-theme via the CSS custom properties at the top of `style.min.css` (`--accent`, `--accent-dark`, `--bg`, etc.) if a real logo/brand palette becomes available later, per `PROMPT.md` §3.
+### 3. Photos (in `images/`)
+All current images are hand-drawn SVG placeholders so the page never shows
+a broken image, but they are **not real photos**. Replace with real WebP
+images, keep the same filenames (or update the `src` in `index.html`), and
+keep the `width`/`height` attributes matching the new file's actual pixel
+size so the layout doesn't shift on load:
 
-## Publishing (Cloudflare Pages)
+| File | Used for | Replace with |
+|---|---|---|
+| `images/hero-example-site.svg` | Phone mockup screen in the hero | A real screenshot of a client site or the demo site, portrait crop, ~276×598 |
+| `images/live-example-screenshot.svg` | "Live example" section | A real screenshot of the demo restaurant site, ~640×420 |
+| `images/about-photo-placeholder.svg` | About section | A real photo of you, square crop, ~280×280 (displayed at 140×140, so export at 2x for retina) |
+| `images/og-image.png` | Open Graph / Facebook + Twitter share preview | Already a real 1200×630 PNG (generated, branded), but swap it for a version with your actual name/photo once you have one. This is what shows up when the link is shared on Facebook — check it with a link-preview debugger before announcing the site. |
 
-1. Decide on and swap in the real deployment domain across `index.html` (canonical, OG, Twitter, JSON-LD `url` fields), `robots.txt`, `sitemap.xml`, and `llms.txt`.
-2. In the Cloudflare dashboard: **Workers & Pages → Create → Pages → Upload assets**, and upload every file in this folder (flat, no subfolders).
-3. Attach the custom domain under **Custom domains** and update DNS as prompted.
-4. Submit `sitemap.xml` in **Google Search Console** and request indexing for the homepage.
-5. Validate Open Graph output with a link-preview debugger and the JSON-LD with Google's Rich Results Test before announcing the site.
-6. Resolve the Siem Reap Facebook page ambiguity above (confirm which physical location "The Butcher's Choice by La Ferme De Bassac" page belongs to, and whether a distinct third page exists) before treating the follow links as final.
+The hero phone mockup and the live-example browser frame (nav dots, URL
+bar) are built with CSS in `styles.css` / `index.html` — you don't need an
+image for those parts, only for the screenshots inside them.
+
+### 4. Personal details
+- **Name** — `index.html`, About section (`data-i18n="about.title"` and
+  `about.signature"`, currently `[Your Name]`), also mirrored in
+  `script.js`'s `translations.en` object.
+- **Phone number** — footer, currently `+855 12 345 678`
+  (`tel:+855123456789` href in `index.html`).
+- **Facebook page** — footer link, currently
+  `https://www.facebook.com/restaurantcambodia`, and in the JSON-LD
+  `sameAs` array in `<head>`.
+
+### 5. Khmer translations
+`script.js` has a `translations` object with two language blocks, `en` and
+`km`. Every key exists in both; the `km` values are currently empty
+strings on purpose — the toggle already works, it just falls back to
+English until you fill Khmer text in. Fill in each `km` value with the
+matching translation (keep the key names as-is), e.g.:
+```js
+km: {
+  "hero.h1.pre": "ភ្ញៀវទេសចរកំពុងស្វែងរកអ្នកនៅលើ",
+  "hero.h1.accent": "Google",
+  ...
+}
+```
+Also fill in `META.km.title` and `META.km.description` near the bottom of
+the same object if you want the `<title>`/meta description to switch too.
+`Noto Sans Khmer` is only fetched the first time a visitor switches to
+Khmer, so English-first visitors never pay for that font.
+
+### 6. Domain-dependent SEO fields
+Once deployed, double check these all point at the real final domain
+(they're already set to `https://restaurant-cambodia.com/`, update only if
+you deploy elsewhere or add a custom domain later):
+- `<link rel="canonical">` in `index.html`
+- `og:url`, `og:image`, `twitter:image` in `index.html`
+- `url` and `image` in the JSON-LD `ProfessionalService` block
+- `Sitemap:` line in `robots.txt`
+- `<loc>` in `sitemap.xml`
+
+## Publishing to Cloudflare Pages
+
+1. Fill in the placeholders above (at minimum: Telegram handle).
+2. In the Cloudflare dashboard: **Workers & Pages → Create → Pages →
+   Upload assets**, and upload every file in this folder as-is (flat, no
+   subfolders except `images/`).
+   - Or connect this GitHub repo directly (**Pages → Create → Connect to
+     Git**) with build command empty and output directory `/` — it's a
+     static site, no build step.
+3. Attach the custom domain (`restaurant-cambodia.com`) under **Custom
+   domains** and follow the DNS instructions.
+4. Submit `sitemap.xml` in **Google Search Console** and request indexing
+   for the homepage.
+5. Validate the Open Graph output with a link-preview debugger (e.g. paste
+   the URL into a new Facebook post and check the preview, then delete the
+   post) and the JSON-LD with Google's Rich Results Test before announcing
+   the site.
+6. Run Lighthouse (mobile) on the deployed URL — everything here was built
+   for a 95+ mobile score (inlined critical CSS, no render-blocking JS,
+   zero external JS libraries, lazy-loaded below-the-fold images, deferred
+   Khmer font), but real photos in `images/` can affect it if they're
+   large — export them as WebP and keep them reasonably sized.
+
+### A note on `_headers` caching
+`_headers` sets `styles.css`, `script.js`, `images/*`, and `favicon.svg` to
+cache for a year (`immutable`). That's great for repeat-visitor speed, but
+it means if you edit `styles.css` or `script.js` after launch, returning
+visitors' browsers (and Cloudflare's edge cache) may keep serving the old
+version until the cache expires. After an edit, either purge the cache in
+the Cloudflare dashboard, or rename the file and update the `<link>`/
+`<script>` tag in `index.html` to bust the cache.
+
+## Design notes
+
+- Palette: cream/off-white background, charcoal text, chili-red primary
+  accent, turmeric secondary accent — CSS variables at the top of
+  `styles.css`.
+- Display font: **Fraunces** (headings), body font: **Inter**, Khmer font:
+  **Noto Sans Khmer** (lazy-loaded). All loaded via Google Fonts with
+  `preconnect` + non-blocking `<link rel="preload">` swap, so they never
+  block first paint.
+- No external JS libraries — `script.js` is vanilla JS, ~150 lines, no
+  dependencies.
+- Sticky bottom "Message on Telegram" bar shows on mobile only (below the
+  960px breakpoint, where the header CTA is hidden instead).
